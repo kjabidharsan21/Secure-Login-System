@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · Secure Login{% endblock %}
+{% block content %}
+<section class="panel">
+  <div class="success-icon">✓</div>
+  <h2>You’re signed in, {{ username }}!</h2>
+  <p class="muted">Your protected dashboard is available because your session is authenticated.</p>
+  <div class="status-list">
+    <p><span class="dot"></span> Password verification: bcrypt</p>
+    <p><span class="dot"></span> Database queries: parameterized</p>
+    <p><span class="dot"></span> Session: active (30-minute lifetime)</p>
+  </div>
+  <form method="post" action="{{ url_for('logout') }}">
+    <button class="secondary" type="submit">Log out</button>
+  </form>
+</section>
+{% endblock %}

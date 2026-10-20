@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Register · Secure Login{% endblock %}
+{% block content %}
+<section class="panel">
+  <h2>Create your account</h2>
+  <p class="muted">Your password is stored as a bcrypt hash, not plain text.</p>
+  <form method="post" action="{{ url_for('register') }}">
+    <label for="username">Username</label>
+    <input id="username" name="username" autocomplete="username" minlength="3" maxlength="30" pattern="[A-Za-z0-9_]{3,30}" title="Use 3–30 letters, numbers, or underscores." required>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="72" required>
+    <p class="hint">Use 8–72 characters. Avoid reusing passwords from other sites.</p>
+    <label for="confirm_password">Confirm password</label>
+    <input id="confirm_password" name="confirm_password" type="password" autocomplete="new-password" minlength="8" maxlength="72" required>
+    <button type="submit">Create account</button>
+  </form>
+  <p class="switch">Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+</section>
+{% endblock %}
